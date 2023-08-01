@@ -1,6 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investmentapp</title>
+    <link href="{{ asset('css/Homepage.css') }}" rel="stylesheet">
+</head>
+<body>
+
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
+    <h1 class="text-center mt-7 font-bold text-xl">Login to Your Account</h1>
+    <p class="text-center">Enter your username & password to login</p>
+    <br><br>
 
     <form method="POST" action="{{ route('login') }}">
         @csrf
@@ -24,6 +37,18 @@
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
+        <!-- phone number -->
+        <!-- <div class="mt-4">
+            <x-input-label for="Phone" :value="__('Phone')" />
+
+            <x-text-input id="Phone" class="block mt-1 w-full"
+                            type="phone"
+                            name="phone"
+                            required autocomplete="current-Phone" />
+
+            <x-input-error :messages="$errors->get('phone')" class="mt-2" />
+        </div> -->
+
         <!-- Remember Me -->
         <div class="block mt-4">
             <label for="remember_me" class="inline-flex items-center">
@@ -45,3 +70,8 @@
         </div>
     </form>
 </x-guest-layout>
+    
+
+
+</body>
+</html>
